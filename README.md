@@ -20,7 +20,7 @@ NewPipe MOD lets Kodi browse and play publicly available YouTube content without
 
 ## Installation
 
-1. Download `plugin.video.newpipe-1.4.56-subscriptions-original-audio.zip` from the [v1.4.56 release](../../releases/tag/v1.4.56).
+1. Download `plugin.video.newpipe-1.4.56.zip` from the [v1.4.56 release](../../releases/tag/v1.4.56).
 2. In Kodi, select **Add-ons → Install from zip file** and choose the downloaded ZIP.
 3. Open **NewPipe MOD** from Video add-ons.
 4. Optional: open **YouTube account** to link an account using the QR code. The subscription import begins automatically after approval.
