@@ -1,10 +1,10 @@
-# Texto curto para Reddit — NewPipe MOD v1.4.56
+# NewPipe MOD v1.4.56
 
-## Título sugerido
+## Título
 
 **[Kodi] NewPipe MOD v1.4.56 — Shorts reais, QR YouTube de 60s, menus sempre atualizados e áudio original nas subscrições**
 
-## Publicação sugerida
+## Publicação
 
 Atualizei o **NewPipe MOD para Kodi** para a versão **1.4.56**.
 
