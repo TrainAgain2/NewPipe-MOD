@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <controls>
+        <!-- Background must stay first in XML; Kodi draws following controls above it. -->
+        <control type="image">
+            <id>100</id>
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>1080</height>
+            <texture />
+            <aspectratio>scale</aspectratio>
+        </control>
+        <control type="image">
+            <id>101</id>
+            <left>780</left>
+            <top>180</top>
+            <width>360</width>
+            <height>360</height>
+            <texture />
+            <aspectratio>keep</aspectratio>
+        </control>
+        <control type="label">
+            <id>102</id>
+            <left>560</left>
+            <top>560</top>
+            <width>800</width>
+            <height>36</height>
+            <font>font24</font>
+            <textcolor>FFFFFFFF</textcolor>
+            <align>center</align>
+            <label />
+        </control>
+        <control type="label">
+            <id>103</id>
+            <left>560</left>
+            <top>600</top>
+            <width>800</width>
+            <height>52</height>
+            <font>font32</font>
+            <textcolor>FFFF0000</textcolor>
+            <align>center</align>
+            <label />
+        </control>
+        <control type="label">
+            <id>104</id>
+            <left>560</left>
+            <top>658</top>
+            <width>800</width>
+            <height>36</height>
+            <font>font24</font>
+            <textcolor>FFE2EAF0</textcolor>
+            <align>center</align>
+            <label />
+        </control>
+        <control type="label">
+            <id>105</id>
+            <left>320</left>
+            <top>720</top>
+            <width>1280</width>
+            <height>36</height>
+            <font>font24</font>
+            <textcolor>FFE2EAF0</textcolor>
+            <align>center</align>
+            <label />
+        </control>
+        <control type="label">
+            <id>106</id>
+            <left>320</left>
+            <top>766</top>
+            <width>1280</width>
+            <height>36</height>
+            <font>font24</font>
+            <textcolor>FFB9DFF1</textcolor>
+            <align>center</align>
+            <label />
+        </control>
+        <control type="label">
+            <id>107</id>
+            <left>320</left>
+            <top>822</top>
+            <width>1280</width>
+            <height>34</height>
+            <font>font20</font>
+            <textcolor>FFBFC8D0</textcolor>
+            <align>center</align>
+            <label />
+        </control>
+    </controls>
+</window>
