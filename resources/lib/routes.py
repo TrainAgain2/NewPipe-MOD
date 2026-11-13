@@ -30,6 +30,7 @@ from . import yt
 from . import youtube_sync
 from . import localization
 from . import ui
+from . import trace_tv
 
 
 _STATE_PREFIX = 'np:'
@@ -483,6 +484,8 @@ def root():
          'isFolder': 'True', 'isPlayable': 'False'},
         {'title': 30018, 'action': 'live', 'icon': _icon('live'), 'image': _icon('live'),
          'isFolder': 'True', 'isPlayable': 'False'},
+        {'title': 30211, 'action': 'trace_tv', 'icon': _icon('trace_tv2'), 'image': _icon('trace_tv2'),
+         'isFolder': 'True', 'isPlayable': 'False'},
         {'title': 30051, 'action': 'trailers', 'icon': _icon('trailers'), 'image': _icon('trailers'),
          'isFolder': 'True', 'isPlayable': 'False'},
         {'title': 30084, 'action': 'subscriptions', 'icon': _icon('subscriptions'),
@@ -693,6 +696,46 @@ def live(query=None, page=1):
         'live',
         {'query': query},
         page=page,
+    )
+
+
+@urldispatcher.register('trace_tv')
+def trace_tv_menu():
+    """List the Trace live music channels (CanaisTVPT sources)."""
+    items = []
+    for channel_id, label, logo, _urls in trace_tv.CHANNELS:
+        image = _icon(logo)
+        items.append({
+            'title': label,
+            'action': 'trace_play',
+            'url': channel_id,
+            'icon': image,
+            'image': image,
+            'artwork': _artwork(image),
+            'fanart': '',
+            'plot': _text(30212, 'Live music channel'),
+            'isFolder': 'False',
+            'isPlayable': 'True',
+        })
+    _build(items, content='videos')
+
+
+@urldispatcher.register('trace_play', kwargs=['url'])
+def trace_play(url):
+    entry = trace_tv.channel(url)
+    stream = trace_tv.stream_url(url)
+    if not entry or not stream:
+        from tulip.init import syshandle
+        kodi.resolve(syshandle, False, xbmcgui.ListItem())
+        return
+    image = _icon(entry[2])
+    directory.resolve(
+        stream,
+        meta={'title': entry[1], 'mediatype': 'video'},
+        icon={'icon': image, 'thumb': image, 'poster': image},
+        headers={'User-Agent': trace_tv.USER_AGENT},
+        mimetype='application/vnd.apple.mpegurl',
+        live=True,
     )
 
 

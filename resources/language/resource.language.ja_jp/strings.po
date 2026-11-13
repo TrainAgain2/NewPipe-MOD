@@ -723,3 +723,11 @@ msgstr ""
 msgctxt "#30196"
 msgid "次: {0}"
 msgstr ""
+
+msgctxt "#30211"
+msgid "Trace TV"
+msgstr "Trace TV"
+
+msgctxt "#30212"
+msgid "Live music channel"
+msgstr "ライブ音楽チャンネル"

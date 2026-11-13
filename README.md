@@ -6,6 +6,11 @@
 
 NewPipe MOD lets Kodi browse and play publicly available YouTube content without an API key or a mandatory account. Search history, watch history, bookmarks and locally stored subscriptions stay on the device.
 
+## Version 1.4.59 — Trace TV
+
+- **New Trace TV menu:** a main-menu entry with its own icon, in the same style as the other menus, for the live channels **Trace Urban, Trace Toca, Trace Latina (FR) and Trace Brasil (BR)**.
+- Stream addresses come from the [CanaisTVPT](https://github.com/thomraider12/canaistvpt) list; when a channel has more than one source, a working mirror is chosen automatically.
+
 ## Version 1.4.56 — highlights
 
 ![YouTube QR activation screen](docs/images/youtube-qr-activation.jpg)
@@ -20,7 +25,7 @@ NewPipe MOD lets Kodi browse and play publicly available YouTube content without
 
 ## Installation
 
-1. Download `plugin.video.newpipe-1.4.56.zip` from the [v1.4.56 release](../../releases/tag/v1.4.56).
+1. Download `plugin.video.newpipe-1.4.59.zip` from the [v1.4.59 release](../../releases/tag/v1.4.59).
 2. In Kodi, select **Add-ons → Install from zip file** and choose the downloaded ZIP.
 3. Open **NewPipe MOD** from Video add-ons.
 4. Optional: open **YouTube account** to link an account using the QR code. The subscription import begins automatically after approval.

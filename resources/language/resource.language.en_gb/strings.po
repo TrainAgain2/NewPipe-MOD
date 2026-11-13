@@ -771,3 +771,11 @@ msgstr ""
 msgctxt "#30210"
 msgid "OK: new code   •   Back: close"
 msgstr ""
+
+msgctxt "#30211"
+msgid "Trace TV"
+msgstr ""
+
+msgctxt "#30212"
+msgid "Live music channel"
+msgstr ""
