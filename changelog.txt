@@ -6,7 +6,7 @@
 
 [B]1.4.57 MOD[/B]
 - New "Trace TV" main-menu entry with its own icon: Trace Urban, Trace Toca, Trace Latina (FR) and Trace Brasil (BR) live channels
-- Streams from the CanaisTVPT list (github.com/thomraider12/canaistvpt); a working mirror is selected automatically when one is available
+- A working stream mirror is selected automatically when a channel has more than one source
 
 [B]1.4.56 MOD[/B]
 - Fixes YouTube subscriptions HLS multi-audio: the resident helper no longer overrides streams with Portuguese/English dubs

@@ -701,7 +701,7 @@ def live(query=None, page=1):
 
 @urldispatcher.register('trace_tv')
 def trace_tv_menu():
-    """List the Trace live music channels (CanaisTVPT sources)."""
+    """List the Trace live music channels."""
     items = []
     for channel_id, label, logo, _urls in trace_tv.CHANNELS:
         image = _icon(logo)

@@ -3,7 +3,7 @@
 ## Novidades
 - Novo menu **Trace TV** no menu principal, com ícone próprio no mesmo estilo dos outros.
 - Canais em direto: **Trace Urban**, **Trace Toca**, **Trace Latina (FR)** e **Trace Brasil (BR)**.
-- Endereços dos streams da lista [CanaisTVPT](https://github.com/thomraider12/canaistvpt) (thomraider12). Se um canal tiver mais do que uma fonte, o addon escolhe automaticamente uma que esteja a funcionar.
+- Se um canal tiver mais do que uma fonte, o addon escolhe automaticamente uma que esteja a funcionar.
 - Descrição dos canais traduzida nas 12 línguas do addon.
 
 ## Instalação

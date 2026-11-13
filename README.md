@@ -13,7 +13,7 @@ NewPipe MOD lets Kodi browse and play publicly available YouTube content without
 ![Trace TV channels: Urban, Toca, Latina and Brasil](docs/images/trace-tv-channels.jpg)
 
 - **New Trace TV menu:** a main-menu entry with its own icon, in the same style as the other menus, for the live channels **Trace Urban, Trace Toca, Trace Latina (FR) and Trace Brasil (BR)**.
-- Stream addresses come from the [CanaisTVPT](https://github.com/thomraider12/canaistvpt) list; when a channel has more than one source, a working mirror is chosen automatically.
+- When a channel has more than one stream source, a working mirror is chosen automatically.
 
 ## Version 1.4.56 — highlights
 

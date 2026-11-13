@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """Trace TV live channels for NewPipe MOD.
 
-Stream addresses come from the public CanaisTVPT list
-(https://github.com/thomraider12/canaistvpt, ``pt.m3u`` and ``radios.html``).
 Each channel keeps a primary address and optional fallbacks; before playback
 the first address that answers is chosen, so a dead CDN does not leave Kodi
 with a silent failure while another mirror is still online.
