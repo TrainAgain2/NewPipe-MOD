@@ -729,13 +729,23 @@ def trace_play(url):
         kodi.resolve(syshandle, False, xbmcgui.ListItem())
         return
     image = _icon(entry[2])
+    # InputStream Adaptive opens only the one quality it plays. Kodi's native
+    # HLS reader probes every variant of the master playlist first, which made
+    # Trace Latina/Brasil take 6-12 s to show the first frame.
+    use_adaptive = playback._inputstream_adaptive_available()
     directory.resolve(
         stream,
         meta={'title': entry[1], 'mediatype': 'video'},
         icon={'icon': image, 'thumb': image, 'poster': image},
         headers={'User-Agent': trace_tv.USER_AGENT},
-        mimetype='application/vnd.apple.mpegurl',
-        live=True,
+        dash=use_adaptive,
+        manifest_type='hls' if use_adaptive else None,
+        inputstream_type='adaptive',
+        mimetype='application/x-mpegURL' if use_adaptive else 'application/vnd.apple.mpegurl',
+        inputstream_properties=playback._inputstream_quality_properties(1080) if use_adaptive else None,
+        # Tulip's live flag adds a YouTube-only DASH update parameter
+        # (&start_seq=...) that would corrupt these plain HLS addresses.
+        live=not use_adaptive,
     )
 
 

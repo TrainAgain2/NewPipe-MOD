@@ -7,6 +7,8 @@ with a silent failure while another mirror is still online.
 """
 from __future__ import absolute_import
 
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.request import Request, urlopen
 
 from tulip.log import log
@@ -42,7 +44,12 @@ def channel(channel_id):
     return None
 
 
-def _alive(url, timeout=5):
+_CACHE_PROPERTY = 'newpipe.trace.stream.{0}'
+_CACHE_SECONDS = 600
+_PROBE_TIMEOUT = 3
+
+
+def _alive(url, timeout=_PROBE_TIMEOUT):
     try:
         request = Request(url, headers={'User-Agent': USER_AGENT})
         with urlopen(request, timeout=timeout) as response:
@@ -55,14 +62,61 @@ def _alive(url, timeout=5):
         return False
 
 
+def _window():
+    try:
+        import xbmcgui
+        return xbmcgui.Window(10000)
+    except Exception:
+        return None
+
+
+def _cached(channel_id, urls):
+    window = _window()
+    if window is None:
+        return ''
+    try:
+        stamp, url = window.getProperty(_CACHE_PROPERTY.format(channel_id)).split('|', 1)
+        if url in urls and time.time() - float(stamp) < _CACHE_SECONDS:
+            return url
+    except (ValueError, TypeError):
+        pass
+    return ''
+
+
+def _remember(channel_id, url):
+    window = _window()
+    if window is not None:
+        window.setProperty(_CACHE_PROPERTY.format(channel_id), '{0}|{1}'.format(time.time(), url))
+
+
 def stream_url(channel_id):
-    """Return the first working stream address (or the primary one)."""
+    """Return the first working stream address (or the primary one).
+
+    All mirrors are probed at the same time with a short timeout, so a dead
+    primary costs at most ~3 s instead of 5 s per address. The chosen address
+    is remembered for 10 minutes, so zapping back to a channel starts at once.
+    """
     entry = channel(channel_id)
     if not entry:
         return ''
     urls = entry[3]
-    if len(urls) > 1:
-        for url in urls:
-            if _alive(url):
-                return url
+    if len(urls) == 1:
+        return urls[0]
+    cached = _cached(channel_id, urls)
+    if cached:
+        return cached
+    results = {}
+    with ThreadPoolExecutor(max_workers=len(urls)) as pool:
+        futures = {pool.submit(_alive, url): url for url in urls}
+        for future in as_completed(futures):
+            url = futures[future]
+            results[url] = future.result()
+            # Stop waiting once the preferred address that is still pending
+            # cannot beat one already known to work.
+            for candidate in urls:
+                if candidate not in results:
+                    break
+                if results[candidate]:
+                    _remember(channel_id, candidate)
+                    return candidate
     return urls[0]

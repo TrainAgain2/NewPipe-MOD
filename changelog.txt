@@ -1,3 +1,7 @@
+[B]1.4.60 MOD[/B]
+- Trace TV channels start faster: HLS is opened by InputStream Adaptive (one quality) instead of Kodi probing every quality first
+- Mirrors are checked in parallel with a 3 s limit, and the working one is remembered for 10 minutes
+
 [B]1.4.59 MOD[/B]
 - Trace TV icon without white outlines, matching the other menu icons
 
