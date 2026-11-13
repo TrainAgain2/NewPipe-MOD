@@ -6,7 +6,7 @@
 
 NewPipe MOD lets Kodi browse and play publicly available YouTube content without an API key or a mandatory account. Search history, watch history, bookmarks and locally stored subscriptions stay on the device.
 
-## Version 1.4.59 — Trace TV
+## Trace TV
 
 ![Trace TV in the NewPipe MOD main menu](docs/images/trace-tv-menu.jpg)
 
