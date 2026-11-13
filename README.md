@@ -15,8 +15,6 @@ NewPipe MOD lets Kodi browse and play publicly available YouTube content without
 - **New Trace TV menu:** a main-menu entry with its own icon, in the same style as the other menus, for the live channels **Trace Urban, Trace Toca, Trace Latina (FR) and Trace Brasil (BR)**.
 - When a channel has more than one stream source, a working mirror is chosen automatically.
 
-## Version 1.4.56 — highlights
-
 ![YouTube QR activation screen](docs/images/youtube-qr-activation.jpg)
 
 - **Shorts menu:** a dedicated main-menu entry that reads the real public YouTube Shorts surface rather than running a text search for “Shorts”.
